@@ -1,41 +1,38 @@
-# Comparação de Memória Estática e Dinâmica em C
+# Simulação de Fragmentação de Memória
 ---
 
 ## 📋 Descrição
 
-Este projeto demonstra a diferença entre alocação estática e alocação dinâmica de memória em linguagem C.
-O programa cria dois arrays:
-
-Um array estático de 5 inteiros (valores de 1 a 5)
-
-Um array dinâmico de 10 inteiros (valores de 10 a 19)
-
-Em seguida, o programa imprime os endereços de memória de ambos os arrays, calcula a diferença entre os endereços, e mostra que estão armazenados em áreas distintas da memória (Stack vs Heap).
-Por fim, a memória alocada dinamicamente é liberada corretamente.
+Este projeto implementa um **simulador de gerenciamento de memória com partições fixas**, utilizando o **algoritmo de alocação First-Fit**.  
+O objetivo é demonstrar, de forma prática e didática, como o sistema operacional gerencia a alocação e liberação de processos em partições de memória.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-Declaração de array estático e preenchimento automático
-
-Alocação dinâmica com malloc() e verificação de sucesso
-
-Impressão de valores e endereços de memória dos dois arrays
-
-Cálculo da diferença entre endereços
-
-Liberação segura da memória dinâmica com free()
+✅ **Alocação de processos** com o algoritmo **First-Fit**  
+✅ **Liberação de partições** ocupadas por processos  
+✅ **Cálculo de fragmentação interna total**  
+✅ **Visualização detalhada** do estado da memória  
+✅ Dois modos de execução:
+- **Modo Automático:** executa uma sequência pré-definida de operações  
+- **Modo Manual:** permite que o usuário interaja com o simulador via comandos  
 
 
 ---
 
-## ⚠️ Observações
+##  🧩 Estrutura da Memória
 
-Os endereços de memória variam a cada execução — o importante é perceber que estão em regiões distintas.
+O sistema possui **5 partições fixas**, pré-definidas no código:
 
-Sempre verifique se malloc() retornou um ponteiro válido antes de usar a memória alocada.
+| ID | Tamanho | Estado Inicial |
+|----|----------|----------------|
+| 1  | 100      | Livre          |
+| 2  | 150      | Livre          |
+| 3  | 200      | Livre          |
+| 4  | 250      | Livre          |
+| 5  | 300      | Livre          |
 
-Liberar a memória com free() evita vazamentos e comportamento indefinido.
+A memória total é de **1000 unidades**.
 
 
