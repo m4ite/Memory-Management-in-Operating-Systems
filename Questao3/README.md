@@ -1,66 +1,37 @@
-# 🧠Memory-Management-in-Operating-Systems
+# Simulador do Algoritmo de Substituição de Página FIFO (Java)
+Este projeto implementa uma **simulação do algoritmo de substituição de páginas FIFO (First In, First Out)** em Java.  
+O programa permite que o usuário informe a quantidade de **frames disponíveis na memória** e uma **sequência de referências a páginas**, mostrando passo a passo como as páginas são carregadas, substituídas e contabilizando as **faltas de página (page faults)**.
 
+---
 
-## 👥 Integrantes do Grupo
+## 📋 Funcionalidades
 
-| Nome Completo | RA |
-|----------------|-----|
-| Maite Feld | 24038305-2 |
-| Arthur Afonso Pereira Mistura | 24042130 2 |
-| Henrique Chittolina Silva | 241514342 |
-| Eduardo Vinicius Viante Vieira | 24136242-2 |
-| Brendon Cesario | 24250743-2 |
-| Lucas Crais | 24151355-2 |
-| Pedro Leandro Hack Ruthes | 24170562-2 |
-| Bruno Danker | 24229576-2 |
+- Recebe como entrada:
+  - Número de **frames disponíveis** na memória.
+  - Sequência de **referências a páginas** (ex: `7 0 1 2 0 3 0 4 2 3 0 3 2`).
+- Simula o comportamento do **algoritmo FIFO**:
+  - Carrega páginas conforme são acessadas.
+  - Substitui sempre a **página mais antiga** quando não há espaço livre.
+- Exibe:
+  - O **estado atual da memória (frames)** após cada referência.
+  - Se ocorreu **Page Fault** ou **Page Hit**.
+  - Qual página foi substituída (quando aplicável).
+  - O **total de faltas de página acumuladas**.
+- Calcula e mostra:
+  - O **número total** de faltas de página.
+  - A **taxa de faltas de página**, em relação ao total de referências.
 
 
 ---
 
-## 🎯 Objetivo Geral
+## 📚 Conceitos importantes
 
-Este trabalho tem como objetivo **avaliar a compreensão dos conceitos de gerenciamento de memória em sistemas operacionais**, explorando desde os mecanismos básicos de alocação até estratégias de coleta de lixo e substituição de páginas.
+- Page Fault: ocorre quando a página solicitada não está na memória e precisa ser carregada.
 
-Os exercícios combinam **parte teórica** e **parte prática**, exigindo tanto explicação conceitual quanto implementação funcional nas linguagens **C, Python ou Java**.
+- Page Hit: ocorre quando a página já está nos frames, evitando substituição.
 
----
-
-## 🧩 Estrutura do Trabalho
-
-### **Questão 1 — Alocação Estática vs. Dinâmica (C)**
-Demonstra a diferença entre alocação estática e dinâmica de memória.  
-Implementa um programa em C que cria arrays estáticos e dinâmicos, exibe seus endereços e compara as regiões de memória.  
-Inclui verificação de sucesso na alocação e liberação com `free()`.
-
----
-
-### **Questão 2 — Simulação de Fragmentação de Memória (Python)**
-Simula um **gerenciador de memória com partições fixas**, aplicando o algoritmo **First-Fit**.  
-Calcula fragmentação interna após cada alocação e demonstra como partições podem ficar inutilizadas.  
-Enfatiza o impacto da **fragmentação interna e externa** no uso da memória.
-
----
-
-### **Questão 3 — Algoritmo de Substituição de Página FIFO (Java)**
-Implementa o algoritmo **FIFO (First-In, First-Out)** para substituição de páginas na memória.  
-Recebe uma sequência de referências e o número de quadros, exibindo **faltas de página**, **page hits** e **taxa de faltas**.  
-Utiliza uma estrutura de dados em fila (Queue) para simular a política de substituição.
-
----
-
-### **Questão 4 — Garbage Collection em Python**
-Explora o **mecanismo de coleta de lixo do Python**, demonstrando três cenários:
-1. Coleta por contagem de referências;  
-2. Referência circular entre objetos;  
-3. Liberação em massa via coletor geracional.  
-Inclui o uso dos módulos `gc` e `sys` para exibir **contagem de referências** e **estatísticas de coleta**.  
-Código amplamente comentado para fins didáticos.
-
----
-
-### **Questão 5 — Comparação de Desempenho de Alocação (Python/C/Java)**
-Compara o tempo de execução entre **alocação na pilha (stack)** e **alocação no heap**, demonstrando por que a pilha é mais rápida.  
-O programa mede o tempo médio de criação e destruição de 1.000.000 de variáveis/objetos e calcula a diferença percentual de desempenho.
+- FIFO: substitui a página mais antiga entre as que estão carregadas.
+ferença percentual de desempenho.
 
 ---
 
