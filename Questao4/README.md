@@ -1,41 +1,48 @@
-# Comparação de Memória Estática e Dinâmica em C
+# Demonstração do Garbage Collector em Python
 ---
 
 ## 📋 Descrição
 
-Este projeto demonstra a diferença entre alocação estática e alocação dinâmica de memória em linguagem C.
-O programa cria dois arrays:
+Este projeto tem como objetivo **demonstrar o funcionamento do gerenciamento de memória no Python**, explorando conceitos fundamentais como:
 
-Um array estático de 5 inteiros (valores de 1 a 5)
+- **Contagem de referências (Reference Counting)**
+- **Coleta geracional (Garbage Collection)**
+- **Ciclos de referência**
+- **Liberação de memória em massa**
 
-Um array dinâmico de 10 inteiros (valores de 10 a 19)
-
-Em seguida, o programa imprime os endereços de memória de ambos os arrays, calcula a diferença entre os endereços, e mostra que estão armazenados em áreas distintas da memória (Stack vs Heap).
-Por fim, a memória alocada dinamicamente é liberada corretamente.
-
----
-
-## ⚙️ Funcionalidades
-
-Declaração de array estático e preenchimento automático
-
-Alocação dinâmica com malloc() e verificação de sucesso
-
-Impressão de valores e endereços de memória dos dois arrays
-
-Cálculo da diferença entre endereços
-
-Liberação segura da memória dinâmica com free()
-
+O código cria objetos grandes em memória e mostra **como e quando o Python libera esses objetos**, com mensagens automáticas que indicam a criação e destruição de instâncias.
 
 ---
 
-## ⚠️ Observações
+## ⚙️ Conteúdo
 
-Os endereços de memória variam a cada execução — o importante é perceber que estão em regiões distintas.
+O arquivo principal do projeto está dividido em três seções independentes, que podem ser ativadas e testadas separadamente:
+### 1️⃣ Contagem de Referências
+Demonstra o mecanismo básico de **referência e destruição automática** de objetos.
 
-Sempre verifique se malloc() retornou um ponteiro válido antes de usar a memória alocada.
+- Cria um objeto e exibe sua contagem de referências.
+- Adiciona e remove referências adicionais.
+- Mostra a destruição automática quando o contador chega a zero.
 
-Liberar a memória com free() evita vazamentos e comportamento indefinido.
+
+### 2️⃣ Referência Circular (Coleta Geracional)
+Mostra como o Python trata ciclos de referência, nos quais objetos se referenciam mutuamente.
+
+- Cria dois objetos que apontam um para o outro.
+- Remove as referências externas, mas o ciclo interno impede a liberação imediata.
+- Usa gc.collect() para forçar a coleta e liberar memória.
+
+### 3️⃣ Objetos Não Referenciados em Massa
+Cria vários objetos grandes armazenados em uma lista e, depois, remove todos de uma vez.
+
+- Simula a criação em massa de dados.
+- Mostra o comportamento do coletor ao liberar vários objetos simultaneamente.
+- Exibe estatísticas de coleta por geração.
+
+---
+
+## ⚙️ Execução
+
+💡 Ative cada bloco de teste descomentando a seção desejada no código.
 
 
