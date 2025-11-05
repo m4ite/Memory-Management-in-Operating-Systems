@@ -1,41 +1,40 @@
-# Comparação de Memória Estática e Dinâmica em C
+# Comparação de Desempenho: Stack vs Heap em C
 ---
 
 ## 📋 Descrição
 
-Este projeto demonstra a diferença entre alocação estática e alocação dinâmica de memória em linguagem C.
-O programa cria dois arrays:
+Este projeto tem como objetivo **comparar o desempenho entre alocação de memória na Stack (pilha)** e **no Heap (memória dinâmica)** em linguagem C.  
+O código mede o tempo necessário para realizar **1 milhão de operações** de alocação em cada tipo de memória, repetindo o processo várias vezes para obter uma **média confiável** dos resultados.
 
-Um array estático de 5 inteiros (valores de 1 a 5)
-
-Um array dinâmico de 10 inteiros (valores de 10 a 19)
-
-Em seguida, o programa imprime os endereços de memória de ambos os arrays, calcula a diferença entre os endereços, e mostra que estão armazenados em áreas distintas da memória (Stack vs Heap).
-Por fim, a memória alocada dinamicamente é liberada corretamente.
+A partir dos tempos médios obtidos, é exibida uma **comparação percentual** mostrando quanto a alocação no Heap é mais lenta que na Stack.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-Declaração de array estático e preenchimento automático
-
-Alocação dinâmica com malloc() e verificação de sucesso
-
-Impressão de valores e endereços de memória dos dois arrays
-
-Cálculo da diferença entre endereços
-
-Liberação segura da memória dinâmica com free()
+- Mede o tempo de execução de operações na **Stack** (variáveis locais automáticas);
+- Mede o tempo de execução de operações no **Heap** (alocação dinâmica com `malloc` e `free`);
+- Calcula o **tempo médio** após múltiplas execuções;
+- Exibe uma **comparação percentual** entre os dois métodos;
+- Inclui comentários explicativos sobre as diferenças entre os tipos de memória.
 
 
 ---
 
-## ⚠️ Observações
+## 🧠 Análise dos Resultados
 
-Os endereços de memória variam a cada execução — o importante é perceber que estão em regiões distintas.
+A STACK é muito mais rápida, pois a alocação e liberação são automáticas e previsíveis — basta mover o ponteiro da pilha.
 
-Sempre verifique se malloc() retornou um ponteiro válido antes de usar a memória alocada.
+A HEAP é muito mais lenta, pois envolve chamadas a funções do sistema operacional (malloc e free) e controle de blocos de memória.
 
-Liberar a memória com free() evita vazamentos e comportamento indefinido.
+A diferença pode variar conforme:
+
+- A carga do processador no momento da execução;
+
+- Estratégias de otimização do compilador;
+
+- Gerenciamento de memória do sistema operacional.
+
+Em geral, a alocação no Heap pode ser de dezenas a centenas de vezes mais lenta do que na Stack.
 
 
